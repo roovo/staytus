@@ -6,16 +6,20 @@
 # to specify the database to connect to.
 
 default: &default
-  adapter: mysql2
-  encoding: utf8
+  adapter: postgresql
+  encoding: unicode
   pool: 5
-  username: staytus
-  password:
-  database: staytus
-  host: 127.0.0.1
+  host: localhost
+  port: 5432
 
 production:
   <<: *default
+  database: staytus
 
 development:
   <<: *default
+  database: staytus_development
+
+test:
+  <<: *default
+  database: staytus_test
